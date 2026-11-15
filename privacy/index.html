@@ -19,17 +19,24 @@
 <main class="policy">
 <p class="eyebrow">PACELOOP / PRIVACY</p>
 <h1>Privacy policy</h1>
-<p class="muted">Effective date: November 14, 2026 · Current local prototype and public website</p>
+<p class="muted">Effective date: November 16, 2026 · Local prototype, browser workspace and public website</p>
 <p>
 <a href="#korean">한국어 안내 ↓</a>
 </p>
 <section>
 <h2>1. Scope and operator</h2>
-<p>PaceLoop is an independent developer project maintained by LeeDeokho, the owner of the linked GitHub repository, not an incorporated company. This policy covers this public informational website, the current local single-user PaceLoop prototype, and messages sent to our support address. Privacy contact: <a href="mailto:support.ducklab@gmail.com">support.ducklab@gmail.com</a>. A hosted multi-user service and mobile apps have not launched.</p>
+<p>PaceLoop is an independent developer project maintained by LeeDeokho, the owner of the linked GitHub repository, not an incorporated company. This policy covers this public informational website, the current local single-user PaceLoop prototype, the browser workspace at paceloop.emeralho.workers.dev, and messages sent to our support address. Privacy contact: <a href="mailto:support.ducklab@gmail.com">support.ducklab@gmail.com</a>. A hosted multi-user service and mobile apps have not launched.</p>
 </section>
 <section>
 <h2>2. This public website</h2>
 <p>This is a static informational site hosted by GitHub Pages. It has no account registration, Garmin sign-in, health-data upload form, advertising, analytics scripts, or application cookies added by PaceLoop. Visiting this site does not connect your Garmin account or send your local training records to us. GitHub may process technical request information, including IP addresses and request logs, to operate and secure its hosting. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.</p>
+</section>
+<section>
+<h2>Browser workspace on Cloudflare</h2>
+<p>The public browser workspace stores imported activity measurements, goals, profiles, plans, recommendation context and estimated API usage in IndexedDB in your browser profile. It does not upload your existing local database. Another browser starts empty; people sharing the same browser profile share its stored data. Clearing site data or closing a private browsing session may erase these records. Current JSON backup includes goals, profiles and plans only; keep your original FIT files separately.</p>
+<p>FIT and ZIP files you select are parsed in your browser. We retain selected activity and lap measurements, not original files or GPS route coordinates. Garmin account OAuth and automatic recovery-data synchronization are not yet available in this public workspace.</p>
+<p>AI API keys remain in the current tab's memory and are not put in browser storage or backups. When you check a key, it is forwarded to that provider to list models. When you request a recommendation, your key, recent activity summaries, goals and conversation are sent through a Cloudflare Worker to the AI provider you select: OpenAI, Anthropic or Google. The relay does not persist or log request bodies, keys or responses; OpenAI Responses requests use <code>store:false</code>. This does not override the AI provider's own retention or processing policies. Original FIT files and route coordinates are not sent to the AI.</p>
+<p>Cloudflare serves this workspace and processes network requests. The relay uses a hash of the connecting IP for short-lived request rate limiting. Cloudflare may process technical information for hosting and security under its <a href="https://www.cloudflare.com/privacypolicy/">privacy policy</a>. There is no server-side health database or cross-device backup in this mode. Close or refresh the tab to discard API keys; clear this site's browser data and your own exports to remove stored workspace data.</p>
 </section>
 <section>
 <h2>3. Data in the local prototype</h2>
@@ -43,8 +50,8 @@
 </section>
 <section>
 <h2>5. External AI assistants and MCP</h2>
-<p>Connecting an external AI assistant gives that client access to the PaceLoop tools exposed through MCP. Depending on the tools the client invokes, records, recovery metrics, goals and workout plans can be included in tool responses and transmitted to the selected AI service. Connect only clients you trust and review their permissions and data controls. The current web interface does not call an AI model itself.<br>
-<br>Intended clients include services provided by OpenAI and Anthropic; actual availability depends on the client you configure. Their handling, retention, processing locations and model-improvement use depend on the product, account settings and terms you choose. PaceLoop does not control or guarantee those providers’ practices. Disconnecting PaceLoop does not delete copies already sent to an AI service. Review the relevant provider policy before sharing health or fitness information. PaceLoop does not itself train AI models on your Garmin records or sell them for advertising.</p>
+<p>Connecting an external AI assistant gives that client access to the PaceLoop tools exposed through MCP. Depending on the tools the client invokes, records, recovery metrics, goals and workout plans can be included in tool responses and transmitted to the selected AI service. Connect only clients you trust and review their permissions and data controls. The local web interface can also request recommendations using configured provider connections. Its API keys are encrypted locally. The public browser workspace supports API keys as described below.<br>
+<br>AI services include OpenAI, Anthropic and Google Gemini; actual availability depends on the client you configure. Their handling, retention, processing locations and model-improvement use depend on the product, account settings and terms you choose. PaceLoop does not control or guarantee those providers’ practices. Disconnecting PaceLoop does not delete copies already sent to an AI service. Review the relevant provider policy before sharing health or fitness information. PaceLoop does not itself train AI models on your Garmin records or sell them for advertising.</p>
 </section>
 <section>
 <h2>6. Other service providers and contact messages</h2>
@@ -63,8 +70,10 @@
 </section>
 <div id="korean">
 <section lang="ko">
-<h2>한국어 안내</h2>
-<p>PaceLoop는 GitHub 계정 LeeDeokho가 관리하는 개인 개발 프로젝트입니다. 문의 및 개인정보 관련 요청은 <a href="mailto:support.ducklab@gmail.com">support.ducklab@gmail.com</a>으로 보내주세요. 현재 공개 웹사이트는 소개와 방침을 제공하며, 가입·Garmin 로그인·건강 데이터 업로드·광고·분석 스크립트를 제공하지 않습니다. GitHub는 호스팅 운영을 위해 IP 주소 등 접속 정보를 처리할 수 있습니다.</p>
+<h2>한국어 안내</h2><p><strong>공개 브라우저 작업 공간:</strong> paceloop.emeralho.workers.dev는 Cloudflare에서 제공하며 가져온 운동·랩·측정값, 목표·프로필·계획·추천 근거·추정 비용을 각 브라우저의 IndexedDB에 보관합니다. 같은 브라우저 프로필을 공유하면 같은 데이터를 볼 수 있고, 사이트 데이터 삭제 시 기록이 사라집니다. JSON 백업에는 현재 목표·프로필·계획만 포함하므로 FIT 원본은 별도로 보관해 주세요. Garmin 계정 자동 로그인·회복 기록 동기화는 아직 제공하지 않습니다.</p>
+<p><strong>AI 요청:</strong> API 키는 현재 탭 메모리에서만 사용하며 새로고침하면 사라집니다. 키 확인 시 모델 목록을 조회하고, 추천을 요청하면 최근 운동 요약·목표·대화와 키를 Cloudflare 중계를 거쳐 선택한 OpenAI·Anthropic·Google API에 전달합니다. 중계 서버는 본문·키·응답을 저장하거나 기록하지 않으며, FIT 원본과 GPS 좌표도 전송하지 않습니다. AI 제공자의 자체 보관·국외 처리 정책은 별도로 적용됩니다. Cloudflare는 호스팅·보안을 위해 기술적 접속 정보를 처리하며 중계의 요청 제한에는 IP 해시를 사용합니다. PaceLoop 계정 동기화나 서버 건강 데이터 저장소는 제공하지 않습니다.</p>
+
+<p>PaceLoop는 GitHub 계정 LeeDeokho가 관리하는 개인 개발 프로젝트입니다. 문의 및 개인정보 관련 요청은 <a href="mailto:support.ducklab@gmail.com">support.ducklab@gmail.com</a>으로 보내주세요. GitHub Pages의 소개 웹사이트는 소개와 방침을 제공하며, 가입·Garmin 로그인·건강 데이터 업로드·광고·분석 스크립트를 제공하지 않습니다. GitHub는 호스팅 운영을 위해 IP 주소 등 접속 정보를 처리할 수 있습니다.</p>
 <p>현재 앱은 사용자 컴퓨터에서 실행하는 로컬 프로토타입입니다. 사용자가 연결한 Garmin의 운동·회복 데이터와 직접 입력한 목표·프로필·훈련 초안, 연결·동기화 상태를 로컬에 보관합니다. API 키는 암호화하지만 암호화 키도 같은 컴퓨터에 있으며 운동 데이터베이스 자체는 암호화하지 않습니다. FIT 파일은 상세 그래프 생성에 처리될 수 있으나 샘플 파서는 원본 파일과 경로 좌표를 보관하지 않습니다.</p>
 <p>외부 AI를 MCP로 연결하면 AI 클라이언트가 호출하는 도구에 따라 기록과 목표 등이 해당 서비스에 전달될 수 있습니다. 제공 업체의 보관·국외 처리·모델 개선 사용 여부는 선택한 제품과 계정 설정에 따릅니다. PaceLoop는 외부 AI가 이미 받은 사본을 삭제하거나 그 처리 방식을 보장하지 않습니다. PaceLoop 자체는 Garmin 기록으로 AI 모델을 학습하거나 광고 목적으로 판매하지 않습니다.</p>
 <p>자동 보관 기한은 없습니다. Garmin 연결 해제는 로컬 연결 정보와 수집 기록·관련 토큰 캐시를 삭제하지만 프로필·목표·훈련 초안·작업 이력 등은 남을 수 있습니다. 전체 삭제는 웹·MCP 서버를 종료하고 지정된 데이터 폴더와 별도 백업·내보내기 파일을 삭제해야 합니다. Garmin 키 폐기는 Garmin에서, AI 연결 해제 및 이미 전달된 정보의 삭제는 해당 AI 서비스에서 별도로 처리해야 합니다.</p>
